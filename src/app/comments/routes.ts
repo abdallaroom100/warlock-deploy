@@ -4,11 +4,13 @@ import { createComment } from "./controllers/create-comment";
 import { getPostComments } from "./controllers/get-post-comments";
 import { getRepliedComments } from "./controllers/get-replied-comments";
 import { updateComment } from "./controllers/update-comment";
+import { getComment } from "./controllers/get-comment";
 
 
 guardedGuest(() => {
-  router.get("/comment/replies/:id", getRepliedComments);
+  router.post("/comment/replies/:id", getRepliedComments);
   router.get("/comment/post/:id", getPostComments);
+  router.get("comment/:id",getComment)
 });
 
 
