@@ -5,6 +5,7 @@ import { getPostComments } from "./controllers/get-post-comments";
 import { getRepliedComments } from "./controllers/get-replied-comments";
 import { updateComment } from "./controllers/update-comment";
 import { getComment } from "./controllers/get-comment";
+import { deleteComment } from "./controllers/delete-comment";
 
 
 guardedGuest(() => {
@@ -18,4 +19,6 @@ guardedGuest(() => {
 guarded(() => {
   router.post("/comment", createComment);
   router.put("/comment/:id", updateComment);
+  router.delete("/comment/:id", deleteComment);
 });
+
