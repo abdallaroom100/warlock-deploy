@@ -1,5 +1,4 @@
 import { query } from "@warlock.js/cascade";
-
 import { Request, Response } from "@warlock.js/core";
 import { Comment } from "../models/comment.model";
 

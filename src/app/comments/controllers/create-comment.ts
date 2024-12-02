@@ -35,7 +35,7 @@ createComment.validation = {
             content:request.string("content"),
             commentOwner:{id,name},
             postId:request.number("postId"),
-            parentId: request.number("parentId")
+            parentId: request.number("parentId") || null
             })
             
             currentPost.associate("comments",newComment.only(["commentOwner","content","id","parentId"]))
