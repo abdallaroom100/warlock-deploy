@@ -20,7 +20,7 @@ updateComment.validation = {
       return response.notFound();
     }
     
-    if (currentComment.data.userId != request.user.data.id) {
+    if (currentComment.data.commentOwner.id != request.user.data.id) {
       return response.badRequest("you don't have permission to update this comment");
     }
     
