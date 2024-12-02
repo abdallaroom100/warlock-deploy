@@ -7,8 +7,10 @@ import { getSpecificCategory } from "./controllers/get-specific-category";
 import { updateCategory } from "./controllers/update-category";
 
 guardedGuest(() => {
-  router.get("/categories", getAllCategories);
-  router.get("/categories/:id", getSpecificCategory);
+  router.prefix("/categories", () => {
+    router.get("/", getAllCategories);
+    router.get("/:id", getSpecificCategory);
+  });
 });
 
 guarded(() => {

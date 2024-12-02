@@ -5,7 +5,7 @@ export const getSpecificCategory = async (
   request: Request,
   response: Response,
 ) => {
-  return response.success(request.category);
+  return response.success({category:request.category});
 };
 
 getSpecificCategory.validation = {
@@ -16,7 +16,7 @@ getSpecificCategory.validation = {
     const category = await Categories.find(request.input("id"));
 
     if (!category) {
-      return response.notFound();
+      return response.notFound({error:"category not found"});
     }
     request.category = category.data;
   },
