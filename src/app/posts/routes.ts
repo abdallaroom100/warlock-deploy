@@ -1,17 +1,23 @@
 import { router } from "@warlock.js/core";
-import { getAllPosts } from "./controllers/get-all-posts";
-import { createPost } from "./controllers/create-post";
 import { guarded, guardedGuest } from "app/utils/router";
-import { likeThePost } from "./controllers/like-post";
+import { createPost } from "./controllers/create-post";
+import { getAllPosts } from "./controllers/get-all-posts";
 import { getSpecificPost } from "./controllers/get-post";
+import { likeThePost } from "./controllers/like-post";
 
+router.group(
+  {
+    prefix: "/posts",
+  },
+  () => {
+    guardedGuest(() => {
+      router.get("/", getAllPosts);
+      router.get("/:id", getSpecificPost);
+    });
 
-guardedGuest(()=>{
-    router.get("/posts",getAllPosts)
-    router.get("/posts/:id",getSpecificPost)
-})
-guarded(()=>{
-    router.post("/posts",createPost)
-    router.put("/posts/like/:id",likeThePost)
-})
- 
+    guarded(() => {
+      router.post("/", createPost);
+      router.put("/like/:id", likeThePost);
+    });
+  },
+);
