@@ -14,7 +14,7 @@ export const createPost = async (request:Request,response:Response)=>{
         comments:[]
     })
 
- response.success(newPost.data)
+ response.success({post:newPost.data})
 } 
 
 

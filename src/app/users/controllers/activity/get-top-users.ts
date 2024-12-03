@@ -3,19 +3,12 @@ import { type Request, type Response } from "@warlock.js/core";
 import { Comment } from "app/comments/models/comment.model";
 import { Posts } from "app/posts/models/post.model";
 
-interface User {
-    name: string;
-    totalContributes: number;
-  }
+
 export default async function getTopUsers(
   request: Request,
   response: Response,
 ) {
-  const getUserContributs = async (
-    request: Request,
-    response: Response,
-    user: Record<string, any>,
-  ) => {
+  const getUserContributs = async (user: Record<string, any>) => {
     const aggregate = new Aggregate("posts");
 
     const userTotalComments = await Comment.aggregate()
@@ -34,17 +27,12 @@ export default async function getTopUsers(
   };
 
   const users = await query.list("users");
-  let contributers: any = [];
-  users.map(async user => {
-    contributers = [
-      ...contributers,
-      getUserContributs(request, response, user),
-    ];
-  });
+  const AllContributers =  await Promise.all(
+    users.map(async user => getUserContributs(user))
+  )
+    AllContributers.sort()
 
-  const sortedUsers =  Object.values(contributers)
-  if (sortedUsers.length){
-      sortedUsers.sort((a,b)=>(b as User).totalContributes - (a as User).totalContributes)
+
+    response.success({ topContributers: AllContributers });
   }
-  response.success(contributers);
-}
+

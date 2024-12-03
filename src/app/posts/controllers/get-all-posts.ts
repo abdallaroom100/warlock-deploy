@@ -3,5 +3,5 @@ import {type  Response, type Request, type RequestHandler } from "@warlock.js/co
 
 export const getAllPosts = async (request:Request,response:Response)=>{
  const posts = await query.list("posts")
- response.success(posts)
+ response.success({posts})
 } 
