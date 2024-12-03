@@ -17,6 +17,9 @@ deleteComment.validation = {
     if (!currentComment) {
       return response.notFound();
     }
+    if(currentComment.data.commentOwner.id !== request.user.data.id){
+      return response.badRequest({error:"you can't have access to delete that post"})
+    }
 
   },
 };
