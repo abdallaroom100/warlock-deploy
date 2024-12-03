@@ -15,5 +15,6 @@ export class Comment extends Model {
         content:"string",
         postId:"number"
     }
+    
 }
 

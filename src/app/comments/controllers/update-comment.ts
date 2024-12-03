@@ -3,7 +3,7 @@ import { Request, Response } from "@warlock.js/core";
 import { Comment } from "../models/comment.model";
 
 export const updateComment = async (request: Request, response: Response) => {
-  return response.success(request.comment);
+  return response.success();
 };
 
 updateComment.validation = {
