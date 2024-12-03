@@ -7,7 +7,7 @@
     },
     "scripts": {
         "start": "warlock dev",
-        "build": "tsc && warlock build && npm install && npm start",
+        "build": "tsc && warlock build ",
         "prod": "warlock start",
         "postman": "warlock postman",
         "migrate": "warlock migrate",
