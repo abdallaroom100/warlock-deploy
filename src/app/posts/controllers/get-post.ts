@@ -11,7 +11,7 @@ getSpecificPost.validation = {
     validate: async (request:Request,response:Response) => {
          const curretnPost = await Posts.find(request.number("id"))
          if(!curretnPost){
-            return response.notFound()
+            return response.notFound() 
          }
          request.currentPost = curretnPost
     }
