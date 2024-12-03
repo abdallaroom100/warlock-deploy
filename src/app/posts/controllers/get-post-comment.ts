@@ -18,6 +18,7 @@ getPostComments.validation = {
     const limit = request.number("limit")
     
     if(page+limit){
+        console.log(page , limit)
         const postComments = await Comment.aggregate()
         .where("postId", "=", request.number("postId"))
         .paginate(request.number("page"), request.number("limit"))
