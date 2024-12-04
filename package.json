@@ -1,9 +1,6 @@
 {
     "name": "blog-app",
     "version": "1.0.0",
-    "engines": {
-        "node": "20.x"
-    },
     "private": true,
     "scripts": {
         "start": "warlock dev",
@@ -15,7 +12,7 @@
         "migrate.list": "warlock migrate --list",
         "jwt": "warlock jwt.generate",
         "test": "warlock test.init && vitest",
-        "prod.start": "npm build && npm prod",
+        "prod.start": "npm build && npm prod", 
         "serve": "npm build && nohup warlock start > /dev/null 2>&1",
         "lint": "npx eslint --fix ./src --max-warnings=0",
         "format": "npx prettier --write ./src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc.json",
