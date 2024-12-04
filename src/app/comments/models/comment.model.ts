@@ -1,6 +1,6 @@
 import { castModel, Casts, Document, Model } from "@warlock.js/cascade";
 import { User } from "app/users/models/user";
-import { ObjectId } from "bson";
+
 
 export class Comment extends Model {
 
