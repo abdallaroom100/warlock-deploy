@@ -2,7 +2,7 @@
     "name": "blog-app",
     "version": "1.0.0",
     "private": true,
-    "scripts": {
+    "scripts": {   
         "start": "warlock dev",
         "build": "tsc && warlock build ",
         "prod": "warlock start",
