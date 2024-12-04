@@ -8,9 +8,9 @@
   ],
   "routes": [
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "/dist/app.js",
-      "methods":["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+      "methods":["GET","POST","PUT","PATCH","DELETE"]
     }
   ]
 }
